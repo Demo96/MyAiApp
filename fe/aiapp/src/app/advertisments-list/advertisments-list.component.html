@@ -1,0 +1,10 @@
+<h1>Advertisments</h1>
+<div class="titles">
+    <span>TITLE</span>
+    <span>PRICE</span>
+</div>
+<div *ngFor="let advertisment of advertisments | async">
+    <a routerLink="./{{advertisment.id}}">{{advertisment.title}}</a>
+    <span>{{advertisment.price}}</span>
+</div>
+<a routerLink="./create"><button>ADD</button></a>

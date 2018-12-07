@@ -1,0 +1,19 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { UsersComponent } from './users/users.component';
+import { AdvertismentsListComponent } from './advertisments-list/advertisments-list.component';
+import { AdvertismentDetailsComponent } from './advertisment-details/advertisment-details.component';
+import { CreateAdvertismentComponent } from './create-advertisment/create-advertisment.component';
+const routes: Routes = [
+  { path: '', redirectTo: 'advertisments', pathMatch: 'full' },
+  { path: 'users', component: UsersComponent },
+  { path: 'advertisments', component: AdvertismentsListComponent },
+    { path: 'advertisments/create', component: CreateAdvertismentComponent },
+  { path: 'advertisments/:id', component: AdvertismentDetailsComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

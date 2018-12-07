@@ -1,0 +1,11 @@
+div {
+    display: flex;
+    span, a {
+        width: 50%;
+        flex-direction: row;
+    }
+}
+
+.titles {
+    color: red;
+}
