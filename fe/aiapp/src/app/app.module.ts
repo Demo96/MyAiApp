@@ -16,7 +16,8 @@ import { CreateAdvertismentComponent } from './create-advertisment/create-advert
     UsersComponent,
     AdvertismentsListComponent,
     AdvertismentDetailsComponent,
-    CreateAdvertismentComponent
+    CreateAdvertismentComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +25,7 @@ import { CreateAdvertismentComponent } from './create-advertisment/create-advert
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
