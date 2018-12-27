@@ -4,12 +4,15 @@ import { UsersComponent } from './users/users.component';
 import { AdvertismentsListComponent } from './advertisments-list/advertisments-list.component';
 import { AdvertismentDetailsComponent } from './advertisment-details/advertisment-details.component';
 import { CreateAdvertismentComponent } from './create-advertisment/create-advertisment.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
   { path: '', redirectTo: 'advertisments', pathMatch: 'full' },
   { path: 'users', component: UsersComponent },
   { path: 'advertisments', component: AdvertismentsListComponent },
-    { path: 'advertisments/create', component: CreateAdvertismentComponent },
-  { path: 'advertisments/:id', component: AdvertismentDetailsComponent }
+  { path: 'advertisments/create', component: CreateAdvertismentComponent },
+  { path: 'auth/login', component: LoginComponent },
+  { path: 'signup', component: RegisterComponent }
 ];
 
 @NgModule({
