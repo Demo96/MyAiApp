@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent },
   { path: 'advertisments', component: AdvertismentsListComponent },
   { path: 'advertisments/create', component: CreateAdvertismentComponent },
+  { path: 'advertisments/:id', component: AdvertismentDetailsComponent },
   { path: 'auth/login', component: LoginComponent },
   { path: 'signup', component: RegisterComponent }
 ];

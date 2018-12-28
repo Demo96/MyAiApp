@@ -10,8 +10,8 @@ export class AppComponent implements OnInit {
   title = '!!! AiApp !!!';
   private roles: string[];
   private authority: string;
-  
-  constructor (private tokenStorage: TokenStorageService) {}
+
+  constructor(private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -20,10 +20,17 @@ export class AppComponent implements OnInit {
         if (role === 'ROLE_ADMIN') {
           this.authority = 'admin';
           return false;
-        } 
+        }
         this.authority = 'user';
         return true;
       });
     }
+  }
+
+  logout() {
+    this.tokenStorage.deleteAuthorities();
+    this.tokenStorage.deleteToken();
+    this.tokenStorage.deleteUsername();
+    this.authority = null;
   }
 }

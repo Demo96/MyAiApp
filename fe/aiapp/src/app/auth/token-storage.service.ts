@@ -25,6 +25,10 @@ export class TokenStorageService {
     return sessionStorage.getItem(TOKEN_KEY);
   }
 
+  public deleteToken() {
+    window.sessionStorage.removeItem(TOKEN_KEY);
+  }
+
   public saveUsername(username: string) {
     window.sessionStorage.removeItem(USERNAME_KEY);
     window.sessionStorage.setItem(USERNAME_KEY, username);
@@ -32,6 +36,10 @@ export class TokenStorageService {
 
   public getUsername() {
     return sessionStorage.getItem(USERNAME_KEY);
+  }
+
+  public deleteUsername() {
+    window.sessionStorage.removeItem(USERNAME_KEY);
   }
 
   public saveAuthorities(authorities: string[]) {
@@ -49,5 +57,9 @@ export class TokenStorageService {
     }
 
     return this.roles;
+  }
+
+  public deleteAuthorities() {
+    window.sessionStorage.removeItem(AUTHORITIES_KEY);
   }
 }

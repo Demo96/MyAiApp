@@ -1,10 +1,29 @@
-<h1>Advertisments</h1>
-<div class="titles">
-    <span>TITLE</span>
-    <span>PRICE</span>
+<h1 class="my-4">Ogłoszenia
+</h1>
+<div class="search-bar">
+    <input type="text" placeholder="Szukaj..">
+    <button type="submit">WYSZUKAJ</button>
 </div>
-<div *ngFor="let advertisment of advertisments | async">
-    <a routerLink="./{{advertisment.id}}">{{advertisment.title}}</a>
-    <span>{{advertisment.price}}</span>
+<div *ngFor="let advertisment of advertisments | async" class="row">
+    <div class="two-col">
+        <div>
+            <a routerLink="./{{advertisment.id}}">
+                <img class="" src="http://placehold.it/700x300" alt="">
+            </a>
+        </div>
+        <div>
+            <div>
+                <h3>{{advertisment.title}}</h3>
+                <h4>Cena: {{advertisment.price}} zł</h4>
+            </div>
+
+            <p>{{getShortDescription(advertisment)}}</p>
+
+
+            <div>
+                <a routerLink="./{{advertisment.id}}" class="btn btn-primary">Details</a>
+            </div>
+        </div>
+    </div>
+    <hr>
 </div>
-<a routerLink="./create"><button>ADD</button></a>

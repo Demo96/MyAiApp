@@ -13,6 +13,13 @@ export class AdvertismentsListComponent implements OnInit {
   advertisments: Observable<Advertisment[]>;
   constructor(private advertismentService: AdvertismentService, private router: Router) { }
 
+  getShortDescription(advertisment: Advertisment): string {
+    let shortDescriptionMaxLength = 150; 
+    if (advertisment.description.length < shortDescriptionMaxLength)
+    return advertisment.description;
+    else 
+    return advertisment.description.slice(0,shortDescriptionMaxLength-3)+"...";
+  }
   ngOnInit() {
     this.reloadData();
   }
