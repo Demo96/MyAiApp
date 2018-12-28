@@ -3,4 +3,7 @@ export class Advertisment {
     title: string;
     description: string;
     price: number;
+    userName: string;
+    phoneNumber: string;
+    city: string;
 }
