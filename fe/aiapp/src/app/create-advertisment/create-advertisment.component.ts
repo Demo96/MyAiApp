@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Advertisment } from '../advertisment';
 import { AdvertismentService } from '../advertisment.service';
 import { Router } from '@angular/router';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 @Component({
   selector: 'app-create-advertisment',
@@ -11,15 +12,17 @@ import { Router } from '@angular/router';
 export class CreateAdvertismentComponent implements OnInit {
   advertisment: Advertisment = new Advertisment();
   submitted = false;
-  constructor(private advertismentService: AdvertismentService,private router: Router) { }
+  constructor(private tokenStorage: TokenStorageService, private advertismentService: AdvertismentService, private router: Router) { }
 
   ngOnInit() {
+    this.setAdvertismentUser();
   }
 
   save() {
     this.advertismentService.creatAdvertisment(this.advertisment)
       .subscribe(data => console.log(data), error => console.log(error));
     this.advertisment = new Advertisment();
+    this.setAdvertismentUser();
   }
 
   onSubmit() {
@@ -27,4 +30,7 @@ export class CreateAdvertismentComponent implements OnInit {
     this.save();
   }
 
+  setAdvertismentUser() {
+    this.advertisment.userName = this.tokenStorage.getUsername();
+  }
 }

@@ -2,19 +2,19 @@ package com.aiapp.advertisment;
 
 public class AdvertismentDTO {
 	private int id;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	private String title;
 	private String description;
 	private int price;
 	private String userName;
 	private String phoneNumber;
 	private String city;
-	
+	private String address;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -50,5 +50,11 @@ public class AdvertismentDTO {
 	}
 	public void setCity(String city) {
 		this.city = city;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }

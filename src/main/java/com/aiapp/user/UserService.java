@@ -2,6 +2,7 @@ package com.aiapp.user;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,10 @@ public class UserService {
 
 	public User getUserById(int id) {
 		return userRepository.findOne(id);
+	}
+	
+	public Optional<User> getUserByUserName(String userName) {
+		return userRepository.findByUserName(userName);
 	}
 
 	public void addUser(User user) {

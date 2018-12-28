@@ -6,4 +6,5 @@ export class Advertisment {
     userName: string;
     phoneNumber: string;
     city: string;
+    address: string;
 }

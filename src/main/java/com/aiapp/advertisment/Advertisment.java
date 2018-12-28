@@ -1,8 +1,10 @@
 package com.aiapp.advertisment;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import com.aiapp.user.User;
 
@@ -14,7 +16,8 @@ public class Advertisment {
 	private String title;
 	private String description;
 	private int price;
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="USER_ID")
 	private User user;
 
 	public Advertisment() {

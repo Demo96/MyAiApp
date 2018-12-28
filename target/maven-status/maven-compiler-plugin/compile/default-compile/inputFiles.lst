@@ -1,8 +1,10 @@
+C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\advertisment\AdvertismentDTO.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\UserPrinciple.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\user\UserController.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\jwt\JwtAuthTokenFilter.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\UserDetailsServiceImpl.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\user\UserRepository.java
+C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\advertisment\AdvertismentDtoMapper.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\messages\SignUpForm.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\ApiApp.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\opinion\OpinionService.java
@@ -10,6 +12,7 @@ C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\role\Role.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\messages\LoginForm.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\user\User.java
+C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\user\UserDTO.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\role\RoleName.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\jwt\JwtProvider.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\opinion\OpinionController.java

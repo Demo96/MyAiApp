@@ -9,7 +9,7 @@ import com.aiapp.user.User;
 public class Opinion {
 	@Id
 	private Integer id;
-	private String decsription;
+	//private String decsription;
 	private int rating;
 	@ManyToOne
 	private User evaluatedUser;
@@ -21,7 +21,7 @@ public class Opinion {
 
 	public Opinion(Integer id, String decsription, int rating, User evaluatedUser, User evaluatingUser) {
 		this.id = id;
-		this.decsription = decsription;
+		//this.decsription = decsription;
 		this.rating = rating;
 		this.evaluatedUser = evaluatedUser;
 		this.evaluatingUser = evaluatingUser;
@@ -35,13 +35,13 @@ public class Opinion {
 		this.id = id;
 	}
 
-	public String getDecsription() {
+	/*public String getDecsription() {
 		return decsription;
 	}
 
 	public void setDecsription(String decsription) {
 		this.decsription = decsription;
-	}
+	}*/
 
 	public int getRating() {
 		return rating;
