@@ -1,8 +1,10 @@
 package com.aiapp.user;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.aiapp.advertisment.Advertisment;
+import com.aiapp.advertisment.AdvertismentDTO;
+import com.aiapp.advertisment.AdvertismentDtoMapper;
+
+@CrossOrigin
 @RequestMapping("/users")
 @RestController
 public class UserController {
@@ -19,25 +26,19 @@ public class UserController {
 	private UserService userService;
 
 	@GetMapping("")
-	public List<User> getAllUsers() {
-		return userService.getAllUsers();
+	public List<UserDTO> getAllUsers() {
+		List<User> userList = userService.getAllUsers();
+		List<UserDTO> DTOList = new LinkedList<UserDTO>();
+		UserDtoMapper mapper = new UserDtoMapper();
+		for (User user : userList)
+			DTOList.add(mapper.mapToDTO(user));
+		return DTOList;
 	}
 	@GetMapping("/{id}")
-	public User getUserById(@PathVariable int id) {
-		return userService.getUserById(id);
-	}
-	@PostMapping("")
-	public void addUser(@RequestBody User user) {
-		userService.addUser(user);
-	}
-	@PutMapping("/id")
-	public void updateUser(@RequestBody User user, @PathVariable int id) {
-		userService.updateUser(id,user);
-	}
-	@DeleteMapping("/{id}")
-	public void deleteUser(@PathVariable int id) {
-		userService.deleteUser(id);
-	}
-	
+	public UserDTO getUserById(@PathVariable int id) {
+		User user = userService.getUserById(id);
+		UserDtoMapper mapper = new UserDtoMapper();
+		return mapper.mapToDTO(user);
+	}	
 
 }

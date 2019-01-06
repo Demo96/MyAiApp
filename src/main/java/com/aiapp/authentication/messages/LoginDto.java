@@ -1,7 +1,7 @@
 package com.aiapp.authentication.messages;
 
 
-public class LoginForm {
+public class LoginDto {
     private String userName;
 
     private String password;

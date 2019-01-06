@@ -22,9 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.aiapp.authentication.jwt.JwtProvider;
 import com.aiapp.authentication.messages.JwtResponse;
-import com.aiapp.authentication.messages.LoginForm;
+import com.aiapp.authentication.messages.LoginDto;
 import com.aiapp.authentication.messages.ResponseMessage;
-import com.aiapp.authentication.messages.SignUpForm;
+import com.aiapp.authentication.messages.SignUpDto;
 import com.aiapp.role.Role;
 import com.aiapp.role.RoleName;
 import com.aiapp.role.RoleRepository;
@@ -52,7 +52,7 @@ public class AuthRestAPIs {
 	
 	@CrossOrigin
 	@PostMapping("/signin")
-	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginForm loginRequest) {
+	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginDto loginRequest) {
 
 		Authentication authentication = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
@@ -66,7 +66,7 @@ public class AuthRestAPIs {
 	}
 	@CrossOrigin
 	@PostMapping("/signup")
-	public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpForm signUpRequest) {
+	public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpDto signUpRequest) {
 		if (userRepository.existsByUserName(signUpRequest.getUserName())) {
 			return new ResponseEntity<>(new ResponseMessage("Fail -> Username is already taken!"),
 					HttpStatus.BAD_REQUEST);

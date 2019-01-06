@@ -1,17 +1,23 @@
 package com.aiapp.user;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
+import com.aiapp.advertisment.Advertisment;
 import com.aiapp.role.Role;
+
 
 @Entity
 public class User {
@@ -28,6 +34,8 @@ public class User {
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	@ManyToMany
 	private Set<Role> roles = new HashSet<>();
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	private List<Advertisment> advertisments = new ArrayList<>();
 
 	public Set<Role> getRoles() {
 		return roles;
@@ -68,14 +76,6 @@ public class User {
 		this.firstName = name;
 	}
 
-	public String getSurename() {
-		return sureName;
-	}
-
-	public void setSurename(String surename) {
-		this.sureName = surename;
-	}
-
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -114,5 +114,21 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getSureName() {
+		return sureName;
+	}
+
+	public void setSureName(String sureName) {
+		this.sureName = sureName;
+	}
+
+	public List<Advertisment> getAdvertisments() {
+		return advertisments;
+	}
+
+	public void setAdvertisments(List<Advertisment> advertisments) {
+		this.advertisments = advertisments;
 	}
 }

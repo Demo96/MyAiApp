@@ -47,10 +47,9 @@ public class AdvertismentController {
 	@PostMapping("")
 	public void addAdvertisment(@RequestBody AdvertismentDTO advertisment) {
 		AdvertismentDtoMapper mapper = new AdvertismentDtoMapper();
-		Advertisment adv =mapper.mapFromDTO(advertisment);
 		User user = userService.getUserByUserName(advertisment.getUserName()).orElseThrow(() -> new UsernameNotFoundException(
 				"User Not Found with -> username or email : " + advertisment.getUserName()));
-		adv.setUser(user);
+		Advertisment adv =mapper.mapFromDTO(advertisment, user);
 		advertismentService.addAdvertisment(adv);
 	}
 

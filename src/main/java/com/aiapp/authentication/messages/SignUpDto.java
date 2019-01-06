@@ -2,7 +2,7 @@ package com.aiapp.authentication.messages;
 
 import java.util.Set;
 
-public class SignUpForm {
+public class SignUpDto {
 	private String userName;
 	private String password;
 	private String firstName;

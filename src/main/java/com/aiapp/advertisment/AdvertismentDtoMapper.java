@@ -18,11 +18,12 @@ public class AdvertismentDtoMapper {
 
 	}
 
-	Advertisment mapFromDTO(AdvertismentDTO advDTO) {
+	Advertisment mapFromDTO(AdvertismentDTO advDTO, User user) {
 		Advertisment adv = new Advertisment();
 		adv.setTitle(advDTO.getTitle());
 		adv.setDecsription(advDTO.getDescription());
 		adv.setPrice(advDTO.getPrice());
+		adv.setUser(user);
 		return adv;
 	}
 }
