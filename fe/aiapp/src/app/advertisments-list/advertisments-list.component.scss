@@ -4,6 +4,13 @@ h1 {
   text-align: center;  
 }
 
+.create-button {
+    padding: $defaul-padding 0;
+    a {
+        width: 100%;
+    }  
+}
+
 .search-bar {
     > input {
         width: 90%;

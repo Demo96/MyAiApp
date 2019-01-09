@@ -14,6 +14,8 @@ import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
 import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { UsersListComponent } from './users-list/users-list.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { CreateUserComponent } from './create-user/create-user.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { UsersListComponent } from './users-list/users-list.component';
     LoginComponent,
     RegisterComponent,
     AdminComponent,
-    UsersListComponent
+    UsersListComponent,
+    UserDetailsComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,

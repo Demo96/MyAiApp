@@ -4,12 +4,13 @@
   <input type="text" placeholder="Szukaj..">
   <button type="submit">WYSZUKAJ</button>
 </div>
-<div *ngFor="let user of users | async" class="row">
-  <div>
-    <div>
-      <h3>asd{{user.phoneNumber}}</h3>
-    </div>
-
-  </div>
+<div class="create-button">
+    <a routerLink="./create" class="btn btn-success">DODAJ OGLOSZENIE</a>
+</div>
+<div *ngFor="let user of users | async">
+  <div class="my-row">
+  <h3>{{user.userName}}</h3>
+  <a routerLink="./{{user.userName}}" class="btn btn-primary">Details</a>
+</div>
   <hr>
 </div>

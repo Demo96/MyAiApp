@@ -6,7 +6,6 @@ public class UserDtoMapper {
 
 	UserDTO mapToDTO(User user) {
 		UserDTO userDTO = new UserDTO();
-		userDTO.setId(user.getId());
 		userDTO.setUserName(user.getUserName());
 		userDTO.setPhoneNumber(user.getPhoneNumber());
 		userDTO.setFirstName(user.getFirstName());

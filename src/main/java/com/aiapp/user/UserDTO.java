@@ -1,7 +1,6 @@
 package com.aiapp.user;
 
 public class UserDTO {
-	private Integer id;
 	private String userName;
 	private String firstName;
 	private String sureName;
@@ -44,10 +43,5 @@ public class UserDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
+
 }

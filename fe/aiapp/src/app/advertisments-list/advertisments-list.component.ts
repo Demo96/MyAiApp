@@ -26,7 +26,8 @@ export class AdvertismentsListComponent implements OnInit {
   reloadData() {
     this.advertisments = this.advertismentService.getAdvertismentList();
   }
-  addUser() {
-        this.router.navigateByUrl('./create');
+  deleteAdvertisment(id: number)
+  {
+    console.log("usuwanie"+id);
   }
 }

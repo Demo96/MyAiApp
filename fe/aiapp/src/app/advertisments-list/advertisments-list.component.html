@@ -4,6 +4,9 @@
     <input type="text" placeholder="Szukaj..">
     <button type="submit">WYSZUKAJ</button>
 </div>
+<div class="create-button">
+    <a routerLink="./create" class="btn btn-success">DODAJ OGLOSZENIE</a>
+</div>
 <div *ngFor="let advertisment of advertisments | async" class="row">
     <div class="two-col">
         <div>
@@ -22,6 +25,7 @@
 
             <div>
                 <a routerLink="./{{advertisment.id}}" class="btn btn-primary">Details</a>
+                <a (click)=deleteAdvertisment(advertisment.id) class="btn btn-danger">USUN</a>
             </div>
         </div>
     </div>

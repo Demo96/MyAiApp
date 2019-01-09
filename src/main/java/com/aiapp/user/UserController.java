@@ -4,19 +4,13 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.aiapp.advertisment.Advertisment;
-import com.aiapp.advertisment.AdvertismentDTO;
-import com.aiapp.advertisment.AdvertismentDtoMapper;
 
 @CrossOrigin
 @RequestMapping("/users")
@@ -34,11 +28,13 @@ public class UserController {
 			DTOList.add(mapper.mapToDTO(user));
 		return DTOList;
 	}
-	@GetMapping("/{id}")
-	public UserDTO getUserById(@PathVariable int id) {
-		User user = userService.getUserById(id);
+	@GetMapping("/{username}")
+	public UserDTO getUserByUsername(@PathVariable String username) {
+		User user = userService.getUserByUserName(username).orElseThrow(() -> new UsernameNotFoundException(
+				"User Not Found with -> username or email : " + username));
 		UserDtoMapper mapper = new UserDtoMapper();
 		return mapper.mapToDTO(user);
 	}	
+	
 
 }
