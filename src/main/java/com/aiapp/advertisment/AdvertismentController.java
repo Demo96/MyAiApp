@@ -1,6 +1,7 @@
 package com.aiapp.advertisment;
 
 import java.util.LinkedList;
+
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.aiapp.user.User;
 import com.aiapp.user.UserService;
 
-@CrossOrigin
+@CrossOrigin()
 @RequestMapping("/advertisments")
 @RestController
 public class AdvertismentController {
@@ -27,6 +28,8 @@ public class AdvertismentController {
 	private AdvertismentService advertismentService;
 	@Autowired
 	private UserService userService;
+	
+	
 	@GetMapping("")
 	public List<AdvertismentDTO> getAllAdvertisments() {
 		List<Advertisment> advList = advertismentService.getAllAdvertisments();
@@ -36,14 +39,14 @@ public class AdvertismentController {
 			DTOList.add(mapper.mapToDTO(adv));
 		return DTOList;
 	}
-
+	
 	@GetMapping("/{id}")
 	public AdvertismentDTO getAdvertismentById(@PathVariable int id) {
 		Advertisment adv = advertismentService.getAdvertismentById(id);
 		AdvertismentDtoMapper mapper = new AdvertismentDtoMapper();
 		return mapper.mapToDTO(adv);
 	}
-
+	
 	@PostMapping("")
 	public void addAdvertisment(@RequestBody AdvertismentDTO advertisment) {
 		AdvertismentDtoMapper mapper = new AdvertismentDtoMapper();
@@ -52,16 +55,17 @@ public class AdvertismentController {
 		Advertisment adv =mapper.mapFromDTO(advertisment, user);
 		advertismentService.addAdvertisment(adv);
 	}
-
+	
 	@PutMapping("")
-	public void updateOpinion(@RequestBody AdvertismentDTO advertisment) {
+	public void updateAdvertisment(@RequestBody AdvertismentDTO advertisment) {
+		//change to customdtomapper
 		ModelMapper modelMapper = new ModelMapper();
 		modelMapper.getConfiguration().setAmbiguityIgnored(true);
 		advertismentService.updateAdvertisment(modelMapper.map(advertisment, Advertisment.class));
 	}
-
+	
 	@DeleteMapping("/{id}")
-	public void deleteOpinion(@PathVariable int id) {
+	public void deleteAdvertisment(@PathVariable int id) {
 		advertismentService.deleteAdvertisment(id);
 	}
 

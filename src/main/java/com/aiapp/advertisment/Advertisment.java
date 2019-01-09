@@ -1,5 +1,6 @@
 package com.aiapp.advertisment;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,7 @@ public class Advertisment {
 	@GeneratedValue
 	private Integer id;
 	private String title;
+	@Column(length = 3000)
 	private String description;
 	private int price;
 	@ManyToOne(fetch=FetchType.LAZY)

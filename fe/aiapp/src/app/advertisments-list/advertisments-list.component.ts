@@ -28,6 +28,6 @@ export class AdvertismentsListComponent implements OnInit {
   }
   deleteAdvertisment(id: number)
   {
-    console.log("usuwanie"+id);
+    this.advertismentService.deleteAdvertisment(id).subscribe(() => this.reloadData());
   }
 }

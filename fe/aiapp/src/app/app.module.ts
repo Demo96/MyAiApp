@@ -16,6 +16,8 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { CreateUserComponent } from './create-user/create-user.component';
+import { EditAdvertismentComponent } from './edit-advertisment/edit-advertisment.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { CreateUserComponent } from './create-user/create-user.component';
     AdminComponent,
     UsersListComponent,
     UserDetailsComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    EditAdvertismentComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,

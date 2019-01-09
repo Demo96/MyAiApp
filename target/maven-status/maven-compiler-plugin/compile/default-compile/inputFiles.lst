@@ -8,14 +8,12 @@ C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\advertisment\AdvertismentDtoMapper.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\ApiApp.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\messages\SignUpDto.java
-C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\opinion\OpinionService.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\AuthRestAPIs.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\role\Role.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\user\User.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\user\UserDTO.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\role\RoleName.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\jwt\JwtProvider.java
-C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\opinion\OpinionController.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\messages\ResponseMessage.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\advertisment\AdvertismentService.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\message\MessageService.java
@@ -25,11 +23,10 @@ C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\user\UserService.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\message\Message.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\message\MessageRepository.java
-C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\opinion\OpinionRepository.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\advertisment\AdvertismentRepository.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\message\MessageController.java
+C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\user\UserDtoMapper.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\role\RoleRepository.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\jwt\JwtAuthEntryPoint.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\messages\JwtResponse.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\WebSecurityConfig.java
-C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\opinion\Opinion.java

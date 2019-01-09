@@ -15,9 +15,11 @@ export class AdvertismentDetailsComponent implements OnInit {
     this.advertisment = new Advertisment();
     this.route.params.subscribe(param => {
       console.log(+param["id"]);
-      this.advertismentService.getAdvertisment(+param["id"]).subscribe(adv => { this.advertisment = adv; console.log("asd", this.advertisment); });
+      this.advertismentService.getAdvertisment(+param["id"]).subscribe(adv => { this.advertisment = adv;});
     });
-    console.log(this.advertisment);
-    // this.advertisment = this.advertismentService.getAdvertisment();
+  }
+  deleteAdvertisment(id: number)
+  {
+    this.advertismentService.deleteAdvertisment(id).subscribe(() => window.location.href = '..');
   }
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,10 +32,15 @@ public class UserController {
 	@GetMapping("/{username}")
 	public UserDTO getUserByUsername(@PathVariable String username) {
 		User user = userService.getUserByUserName(username).orElseThrow(() -> new UsernameNotFoundException(
-				"User Not Found with -> username or email : " + username));
+				"User Not Found with -> username : " + username));
 		UserDtoMapper mapper = new UserDtoMapper();
 		return mapper.mapToDTO(user);
 	}	
 	
-
+	@DeleteMapping("/{username}")
+	public void deleteAdvertisment(@PathVariable String username) {
+		User user = userService.getUserByUserName(username).orElseThrow(() -> new UsernameNotFoundException(
+				"User Not Found with -> username : " + username));
+		userService.deleteUser(user.getId());
+	}
 }

@@ -1,13 +1,13 @@
-<h3>Create ADVERTISMENT</h3>
+<h3>EDYCJA OGLOSZENIA</h3>
 <form (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label for="title">Title</label>
+    <label for="title">TYTUŁ</label>
     <input type="text" class="form-control  vertical-padding" id="title" required [(ngModel)]="advertisment.title" name="title">
-    <label for="description">Description</label>
+    <label for="description">OPIS</label>
     <textarea type="text" rows="10" class="form-control vertical-padding" id="description" required [(ngModel)]="advertisment.description" name="description"><</textarea>
-    <label for="price">Price</label>
+    <label for="price">CENA</label>
     <input type="number" class="form-control vertical-padding"id="price" required [(ngModel)]="advertisment.price" name="price">
-        <button type="submit" class="btn btn-success">Submit</button>
+        <a  (click)="updateAdvertisment()" class="btn btn-success">POTWIERDŹ</a>
   </div>
 </form>
 

@@ -10,6 +10,7 @@ public class AdvertismentDtoMapper {
 		advDTO.setId(adv.getId());
 		advDTO.setTitle(adv.getTitle());
 		advDTO.setDescription(adv.getDescription());
+		advDTO.setPrice(adv.getPrice());
 		advDTO.setUserName(user.getUserName());
 		advDTO.setPhoneNumber(user.getPhoneNumber());
 		advDTO.setCity(user.getCity());

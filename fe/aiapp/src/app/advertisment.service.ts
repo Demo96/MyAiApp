@@ -22,7 +22,7 @@ export class AdvertismentService {
   }
   
    deleteAdvertisment(id: number): Observable<Object> {
-   return this.http.delete(`'${this.baseUrl}/${id}`);  
+    return this.http.delete(`${this.baseUrl}/${id}`);  
   }
   
   getAdvertismentList():Observable<any> {
