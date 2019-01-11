@@ -9,7 +9,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getUser(username: string): Observable<Object> {
+  getUser(username: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/${username}`);
   }
 
@@ -17,12 +17,12 @@ export class UserService {
     return this.http.post(`${this.baseUrl}`, user);
   }
 
-  updateUser(id: number, newUser: Object): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, newUser);
+  updateUser(username: string, newUser: Object): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${username}`, newUser);
   }
 
-  deleteUser(id: number): Observable<Object> {
-    return this.http.delete(`${this.baseUrl}/${id}`);
+  deleteUser(username: string): Observable<Object> {
+    return this.http.delete(`${this.baseUrl}/${username}`);
   }
 
   getUsersList(): Observable<any> {

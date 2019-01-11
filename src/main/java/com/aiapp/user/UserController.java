@@ -9,8 +9,14 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.aiapp.advertisment.Advertisment;
+import com.aiapp.advertisment.AdvertismentDTO;
+import com.aiapp.advertisment.AdvertismentDtoMapper;
 
 
 @CrossOrigin
@@ -40,7 +46,19 @@ public class UserController {
 	@DeleteMapping("/{username}")
 	public void deleteAdvertisment(@PathVariable String username) {
 		User user = userService.getUserByUserName(username).orElseThrow(() -> new UsernameNotFoundException(
-				"User Not Found with -> username : " + username));
+				"User Not Found with -> username: " + username));
 		userService.deleteUser(user.getId());
+	}
+	
+	@PutMapping("/{username}")
+	public void updateAdvertisment(@RequestBody UserDTO userDTO, @PathVariable String username) {
+		UserDtoMapper mapper = new UserDtoMapper();
+		User user = userService.getUserByUserName(userDTO.getUserName()).orElseThrow(() -> new UsernameNotFoundException(
+				"User Not Found with -> username: " + userDTO.getUserName()));
+		User newUser =mapper.mapFromDTO(userDTO);
+		newUser.setId(user.getId());
+		newUser.setPassword(user.getPassword());
+		newUser.setRoles(user.getRoles());
+		userService.updateUser(newUser);
 	}
 }

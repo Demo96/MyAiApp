@@ -7,8 +7,12 @@
     <textarea type="text" rows="10" class="form-control vertical-padding" id="description" required [(ngModel)]="advertisment.description" name="description"><</textarea>
     <label for="price">CENA</label>
     <input type="number" class="form-control vertical-padding"id="price" required [(ngModel)]="advertisment.price" name="price">
-        <a  (click)="updateAdvertisment()" class="btn btn-success">POTWIERDŹ</a>
+    <div class="buttons">
+      <a  (click)="updateAdvertisment()" class="btn btn-success">POTWIERDŹ</a>
+        <a routerLink=".."><button class="btn btn-warning">GO BACK</button></a>
+    </div>
+        
   </div>
 </form>
 
-<a routerLink=".."><button class="btn">GO BACK</button></a>
+

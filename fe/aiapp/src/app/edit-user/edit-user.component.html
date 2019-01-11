@@ -1,3 +1,30 @@
-<p>
-  edit-user works!
-</p>
+  <div class="row col-sm-6" style="max-width:350px;">
+      <div class="form-group">
+        <label for="firstName">firstName</label>
+        <input type="text" class="form-control" name="firstName" [(ngModel)]="user.firstName" #firstName="ngModel"
+          required firstName />
+      </div>
+      <div class="form-group">
+        <label for="sureName">sureName</label>
+        <input type="text" class="form-control" name="sureName" [(ngModel)]="user.sureName" #sureName="ngModel"
+          required sureName />
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">phoneNumber</label>
+        <input type="text" class="form-control" name="phoneNumber" [(ngModel)]="user.phoneNumber" #phoneNumber="ngModel"
+          required phoneNumber />
+      </div>
+      <div class="form-group">
+        <label for="city">city</label>
+        <input type="text" class="form-control" name="city" [(ngModel)]="user.city" #city="ngModel" required city />
+      </div>
+      <div class="form-group">
+        <label for="address">address</label>
+        <input type="text" class="form-control" name="address" [(ngModel)]="user.address" #address="ngModel" required
+          address />
+      </div>
+        <div class="buttons">
+          <a  (click)="updateUser()" class="btn btn-success">POTWIERDŹ</a>
+          <a routerLink=".."><button class="btn btn-warning">WRÓĆ</button></a>
+        </div>
+  </div>

@@ -15,4 +15,15 @@ public class UserDtoMapper {
 		return userDTO;
 	}
 
+	public User mapFromDTO(UserDTO userDTO) {
+		User user = new User();
+		user.setUserName(userDTO.getUserName());
+		user.setFirstName(userDTO.getFirstName());
+		user.setSureName(userDTO.getSureName());
+		user.setPhoneNumber(userDTO.getPhoneNumber());
+		user.setCity(userDTO.getCity());
+		user.setAddress(userDTO.getAddress());
+		return user;
+	}
+
 }

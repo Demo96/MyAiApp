@@ -10,12 +10,13 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { EditAdvertismentComponent } from './edit-advertisment/edit-advertisment.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 const routes: Routes = [
   { path: '', redirectTo: 'advertisments', pathMatch: 'full' },
   { path: 'users', component: UsersListComponent },
   { path: 'users/:userName', component: UserDetailsComponent },
   { path: 'users/create', component: CreateUserComponent },
-  { path: 'users/:userName/edit', component: EditAdvertismentComponent },
+  { path: 'users/:userName/edit', component: EditUserComponent },
   { path: 'advertisments', component: AdvertismentsListComponent },
   { path: 'advertisments/create', component: CreateAdvertismentComponent },
   { path: 'advertisments/:id', component: AdvertismentDetailsComponent },

@@ -56,12 +56,14 @@ public class AdvertismentController {
 		advertismentService.addAdvertisment(adv);
 	}
 	
-	@PutMapping("")
-	public void updateAdvertisment(@RequestBody AdvertismentDTO advertisment) {
-		//change to customdtomapper
-		ModelMapper modelMapper = new ModelMapper();
-		modelMapper.getConfiguration().setAmbiguityIgnored(true);
-		advertismentService.updateAdvertisment(modelMapper.map(advertisment, Advertisment.class));
+	@PutMapping("/{id}")
+	public void updateAdvertisment(@RequestBody AdvertismentDTO advertisment, @PathVariable int id) {
+		AdvertismentDtoMapper mapper = new AdvertismentDtoMapper();
+		User user = userService.getUserByUserName(advertisment.getUserName()).orElseThrow(() -> new UsernameNotFoundException(
+				"User Not Found with -> username or email : " + advertisment.getUserName()));
+		Advertisment adv =mapper.mapFromDTO(advertisment, user);
+		adv.setId(id);
+		advertismentService.updateAdvertisment(adv);
 	}
 	
 	@DeleteMapping("/{id}")

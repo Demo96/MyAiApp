@@ -25,8 +25,8 @@ export class EditAdvertismentComponent implements OnInit {
   }
   updateAdvertisment() {
     this.route.params.subscribe(param => {
-      this.advertismentService.updateAdvertisment(+param["id"],this.advertisment).subscribe();
+      this.advertismentService.updateAdvertisment(+param["id"],this.advertisment).subscribe(() =>     this.getAdvertisment());
     });
-    this.getAdvertisment();
+
   }
 }
