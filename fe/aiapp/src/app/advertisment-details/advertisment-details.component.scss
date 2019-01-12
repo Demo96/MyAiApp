@@ -17,6 +17,9 @@ p {
     border: solid 0.2rem black;
     p {
         text-align: center;
+        a, button{
+            width: 100%;
+        }
     }
     .lead {
         margin: 0;

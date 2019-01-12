@@ -2,13 +2,13 @@
 </h1>
 <div class="search-bar">
     <input type="text" placeholder="Szukaj..">
-    <button type="submit">WYSZUKAJ</button>
+    <button (click)=searchAdvertisments()>WYSZUKAJ</button>
 </div>
 <div class="create-button">
-    <a routerLink="./create" class="btn btn-success">DODAJ OGLOSZENIE</a>
+    <a routerLink="./create" class="btn btn-success">DODAJ OGłOSZENIE</a>
 </div>
 <div *ngFor="let advertisment of advertisments | async" class="row">
-    <div class="two-col">
+    <div  *ngIf=shouldBeShown(advertisment) class="two-col">
         <div>
             <a routerLink="./{{advertisment.id}}">
                 <img class="" src="http://placehold.it/700x300" alt="">
@@ -24,8 +24,8 @@
 
 
             <div>
-                <a routerLink="./{{advertisment.id}}" class="btn btn-primary">Details</a>
-                <a (click)=deleteAdvertisment(advertisment.id) class="btn btn-danger">USUN</a>
+                <a routerLink="./{{advertisment.id}}" class="btn btn-primary">Sczegóły</a>
+                <a (click)=deleteAdvertisment(advertisment.id) class="btn btn-danger">Usuń</a>
             </div>
 
         </div>

@@ -1,16 +1,12 @@
-<h1 class="my-4">Useerzy
-</h1>
+<h1 class="my-4">Użytkownicy</h1>
 <div class="search-bar">
   <input type="text" placeholder="Szukaj..">
   <button type="submit">WYSZUKAJ</button>
 </div>
-<div class="create-button">
-    <a routerLink="./create" class="btn btn-success">DODAJ OGLOSZENIE</a>
-</div>
 <div *ngFor="let user of users | async">
   <div class="my-row">
   <h3>{{user.userName}}</h3>
-  <a routerLink="./{{user.userName}}" class="btn btn-primary">Details</a>
+  <a routerLink="./{{user.userName}}" class="btn btn-primary">Szczegóły</a>
 </div>
   <hr>
 </div>

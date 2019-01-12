@@ -30,4 +30,13 @@ export class AdvertismentsListComponent implements OnInit {
   {
     this.advertismentService.deleteAdvertisment(id).subscribe(() => this.reloadData());
   }
+  shouldBeShown(advertisment)
+  {
+    return true;
+   // return advertisment.title.includes('asd');
+  //  this.advertisments.forEach(function (advArray: Advertisment[]) {
+    //  console.log(advArray.filter(adv => adv.title.includes('asd')));
+   // this.advertisments=advArray.filter(adv => !adv.title.includes('asd'));
+  //  }); 
+  }
 }

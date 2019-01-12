@@ -21,11 +21,11 @@
         <li *ngIf="!authority" class="nav-item">
           <a class="nav-link" routerLink="auth/login">Login</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="users">Użytkownicy</a>
+        </li>
         <li *ngIf="authority" class="nav-item">
           <a class="nav-link" (click)="logout()" routerLink="auth/login" >Wyloguj</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="users">USERZY</a>
         </li>
       </ul>
     </div>
