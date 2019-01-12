@@ -4,6 +4,7 @@ C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\messages\LoginDto.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\jwt\JwtAuthTokenFilter.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\UserDetailsServiceImpl.java
+C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\websocket\WebSocketController.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\user\UserRepository.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\advertisment\AdvertismentDtoMapper.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\ApiApp.java
@@ -21,6 +22,7 @@ C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\advertisment\AdvertismentController.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\advertisment\Advertisment.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\user\UserService.java
+C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\websocket\WebSocketConfiguration.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\message\Message.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\message\MessageRepository.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\advertisment\AdvertismentRepository.java
@@ -29,4 +31,4 @@ C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\role\RoleRepository.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\jwt\JwtAuthEntryPoint.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\messages\JwtResponse.java
-C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\WebSecurityConfig.java
+C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\WebSecurityConfig.java

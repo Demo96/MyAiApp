@@ -62,7 +62,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/advertisments").permitAll()
                 .antMatchers("/advertisments/*").permitAll()
                 .antMatchers("/users").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/socket").permitAll()
+                .antMatchers("/socket/*").permitAll()
+                .anyRequest().permitAll()
+               // .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

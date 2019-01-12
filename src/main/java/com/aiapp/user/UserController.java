@@ -14,10 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.aiapp.advertisment.Advertisment;
-import com.aiapp.advertisment.AdvertismentDTO;
-import com.aiapp.advertisment.AdvertismentDtoMapper;
-
 
 @CrossOrigin
 @RequestMapping("/users")

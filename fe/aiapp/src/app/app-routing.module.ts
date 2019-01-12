@@ -11,6 +11,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { EditAdvertismentComponent } from './edit-advertisment/edit-advertisment.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { ChatComponent } from './chat/chat.component';
 const routes: Routes = [
   { path: '', redirectTo: 'advertisments', pathMatch: 'full' },
   { path: 'users', component: UsersListComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'advertisments/:id', component: AdvertismentDetailsComponent },
   { path: 'advertisments/:id/edit', component: EditAdvertismentComponent },
   { path: 'auth/login', component: LoginComponent },
+  { path: 'chat', component: ChatComponent },
   { path: 'signup', component: RegisterComponent }
 ];
 

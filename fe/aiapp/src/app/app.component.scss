@@ -1,12 +1,43 @@
-h1 {
-	color: red;
-	font-size: 3rem;
+h4 {
+	text-align: center;
 }
 
 body {
 	padding-bottom: 3rem;
 	background-color: rgb(240, 240, 240);
 }
-.container {
-	background-color: lightgray;
+
+.navbar{
+ margin: 0;
 }
+
+.container {
+  display: flex;
+  width: 100%;
+  margin: 0;
+}
+.main-container {
+  //background-color: lightgray;
+  margin: 0;
+  width: 85%;
+  padding: 0.7rem;
+}
+.chat-container {
+  margin: 0.7rem;
+  margin-top: 7rem;
+  padding: 0.7rem;
+  height: 80vh;
+  width: 15%;
+  border: 1px black solid;
+}
+
+.chat {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: scroll;
+    height: 85%;
+  }
+   
+  #chat-input {
+    width: 100%;
+  }
