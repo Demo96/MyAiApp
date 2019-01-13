@@ -3,6 +3,8 @@ import { TokenStorageService } from './auth/token-storage.service';
 import $ from 'jquery';
 import { Stomp} from 'stompjs/lib/stomp.js';
 import * as SockJS from 'sockjs-client/dist/sockjs';
+import { ChatMessageService } from './chat-message.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -15,10 +17,9 @@ export class AppComponent implements OnInit {
   private authority: string;
   private stompClient;
 
-  constructor(private tokenStorage: TokenStorageService) { }
+  constructor(private tokenStorage: TokenStorageService, private chatMessageService: ChatMessageService) { }
 
   ngOnInit() {
-    this.connect();
     if (this.tokenStorage.getToken()) {
       this.roles = this.tokenStorage.getAuthorities();
       this.roles.every(role => {
@@ -30,8 +31,20 @@ export class AppComponent implements OnInit {
         return true;
       });
     }
+    this.connect();
+    this.loadMessages();
   }
 
+  loadMessages() {
+    this.chatMessageService.getMessagesList().subscribe(msgArray => msgArray.forEach(msg =>this.generateMessage(msg.date, msg.username, msg.message)));
+  }
+
+  generateMessage(date: string, username: string, message: string) {
+    $(".chat").prepend("<div>"+
+    "<div style='font-size: 1rem; color: dimgray'>" + date+" "+username + "</div>"+
+    "<div style='font-size: 1.2rem'>" + message + "</div>"+
+     "</div>");
+  }
   logout() {
     this.tokenStorage.deleteAuthorities();
     this.tokenStorage.deleteToken();
@@ -49,10 +62,7 @@ export class AppComponent implements OnInit {
             let messageParts = message.body.split(";");
             if(messageParts.length == 3)
             {
-              $(".chat").prepend("<div class='chat-message'>"+
-              "<div class='message-info'>" + messageParts[0]+messageParts[1] + "</div>"+
-              "<div class='message-body'>" + messageParts[2] + "</div>"+
-               "</div>");
+              that.generateMessage(messageParts[0], messageParts[1], messageParts[2])
           }
         }
       });

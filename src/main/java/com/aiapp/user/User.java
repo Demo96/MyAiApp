@@ -16,6 +16,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import com.aiapp.advertisment.Advertisment;
+import com.aiapp.chat.ChatMessage;
 import com.aiapp.role.Role;
 
 
@@ -36,7 +37,9 @@ public class User {
 	private Set<Role> roles = new HashSet<>();
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private List<Advertisment> advertisments = new ArrayList<>();
-
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	private List<ChatMessage> chatMessages = new ArrayList<>();
+	
 	public Set<Role> getRoles() {
 		return roles;
 	}
@@ -130,5 +133,13 @@ public class User {
 
 	public void setAdvertisments(List<Advertisment> advertisments) {
 		this.advertisments = advertisments;
+	}
+
+	public List<ChatMessage> getMessages() {
+		return chatMessages;
+	}
+
+	public void setMessages(List<ChatMessage> messages) {
+		this.chatMessages = messages;
 	}
 }

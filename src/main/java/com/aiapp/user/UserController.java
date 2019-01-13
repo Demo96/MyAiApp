@@ -40,14 +40,14 @@ public class UserController {
 	}	
 	
 	@DeleteMapping("/{username}")
-	public void deleteAdvertisment(@PathVariable String username) {
+	public void deleteUser(@PathVariable String username) {
 		User user = userService.getUserByUserName(username).orElseThrow(() -> new UsernameNotFoundException(
 				"User Not Found with -> username: " + username));
 		userService.deleteUser(user.getId());
 	}
 	
 	@PutMapping("/{username}")
-	public void updateAdvertisment(@RequestBody UserDTO userDTO, @PathVariable String username) {
+	public void updateUser(@RequestBody UserDTO userDTO, @PathVariable String username) {
 		UserDtoMapper mapper = new UserDtoMapper();
 		User user = userService.getUserByUserName(userDTO.getUserName()).orElseThrow(() -> new UsernameNotFoundException(
 				"User Not Found with -> username: " + userDTO.getUserName()));

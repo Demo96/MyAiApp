@@ -12,16 +12,16 @@
         <a class="navbar-brand" href="#">AiApp</a>
       </div>
       <ul class="nav navbar-nav" routerLinkActive="active">
-        <li *ngIf="authority === 'user'" class="nav-item">
+        <li *ngIf="authority" class="nav-item">
           <a class="nav-link" routerLink="users/{{tokenStorage.getUsername()}}">{{tokenStorage.getUsername()}}</a>
-        </li>
-        <li *ngIf="authority === 'admin'" class="nav-item">
-          <a class="nav-link" routerLink="users">Admin Board</a>
         </li>
         <li *ngIf="!authority" class="nav-item">
           <a class="nav-link" routerLink="auth/login">Login</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="!authority" class="nav-item">
+          <a class="nav-link" (click)="logout()" routerLink="signup" >Zarejestruj</a>
+        </li>
+        <li *ngIf="authority === 'admin'" class="nav-item">
           <a class="nav-link" routerLink="users">Użytkownicy</a>
         </li>
         <li *ngIf="authority" class="nav-item">
@@ -38,7 +38,7 @@
     <div class="d-flex flex-column" style="height: 100%; max-height: 812px;">
     <h4 class="p-2">CZAT</h4>
     <div class="p-2 chat"></div>
-        <input id="chat-input" type="text" class="p-2 mt-auto input-group border border-success rounded" #input (keyup.enter)="sendMessage(input.value)"/>
+    <input id="chat-input" type="text" class="p-2 mt-auto input-group border border-success rounded" #input (keyup.enter)="sendMessage(input.value)"/>
       </div>
     </div>
   </div>

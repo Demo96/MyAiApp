@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.aiapp.user.User;
 import com.aiapp.user.UserService;
 
-@CrossOrigin()
+@CrossOrigin
 @RequestMapping("/advertisments")
 @RestController
 public class AdvertismentController {
