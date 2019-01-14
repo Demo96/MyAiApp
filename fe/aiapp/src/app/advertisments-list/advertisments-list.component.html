@@ -1,14 +1,14 @@
 <h1 class="my-4">Ogłoszenia
 </h1>
 <div class="search-bar">
-    <input type="text" placeholder="Szukaj..">
-    <button (click)=searchAdvertisments()>WYSZUKAJ</button>
+    <input type="text" placeholder="Szukaj.." [(ngModel)]="filter" />
+    <button (click)=filterAdvertisments()>WYSZUKAJ</button>
 </div>
 <div class="create-button">
     <a routerLink="./create" class="btn btn-success">DODAJ OGłOSZENIE</a>
 </div>
-<div *ngFor="let advertisment of advertisments | async" class="row">
-    <div  *ngIf=shouldBeShown(advertisment) class="two-col">
+<div *ngFor="let advertisment of filteredAdvertisments | async" class="row">
+    <div class="two-col">
         <div>
             <a routerLink="./{{advertisment.id}}">
                 <img class="" src="http://placehold.it/700x300" alt="">

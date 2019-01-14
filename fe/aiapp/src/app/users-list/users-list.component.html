@@ -1,9 +1,9 @@
 <h1 class="my-4">Użytkownicy</h1>
 <div class="search-bar">
-  <input type="text" placeholder="Szukaj..">
-  <button type="submit">WYSZUKAJ</button>
+  <input type="text" placeholder="Szukaj.."  [(ngModel)]="filter" />
+  <button (click)=filterUsers()>WYSZUKAJ</button>
 </div>
-<div *ngFor="let user of users | async">
+<div *ngFor="let user of filteredUsers | async">
   <div class="my-row">
   <h3>{{user.userName}}</h3>
   <a routerLink="./{{user.userName}}" class="btn btn-primary">Szczegóły</a>
