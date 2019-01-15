@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from './auth/token-storage.service';
 import $ from 'jquery';
-import { Stomp} from 'stompjs/lib/stomp.js';
+import { Stomp } from 'stompjs/lib/stomp.js';
 import * as SockJS from 'sockjs-client/dist/sockjs';
 import { ChatMessageService } from './chat-message.service';
 import { Observable } from 'rxjs';
@@ -36,14 +36,14 @@ export class AppComponent implements OnInit {
   }
 
   loadMessages() {
-    this.chatMessageService.getMessagesList().subscribe(msgArray => msgArray.forEach(msg =>this.generateMessage(msg.date, msg.username, msg.message)));
+    this.chatMessageService.getMessagesList().subscribe(msgArray => msgArray.forEach(msg => this.generateMessage(msg.date, msg.username, msg.message)));
   }
 
   generateMessage(date: string, username: string, message: string) {
-    $(".chat").prepend("<div>"+
-    "<div style='font-size: 1rem; color: dimgray'>" + date+" "+username + "</div>"+
-    "<div style='font-size: 1.2rem'>" + message + "</div>"+
-     "</div>");
+    $(".chat").prepend("<div>" +
+      "<div style='font-size: 1rem; color: dimgray'>" + date + " " + username + "</div>" +
+      "<div style='font-size: 1.2rem'>" + message + "</div>" +
+      "</div>");
   }
   logout() {
     this.tokenStorage.deleteAuthorities();
@@ -59,10 +59,9 @@ export class AppComponent implements OnInit {
     this.stompClient.connect({}, function () {
       that.stompClient.subscribe("/chat", (message) => {
         if (message.body) {
-            let messageParts = message.body.split(";");
-            if(messageParts.length == 3)
-            {
-              that.generateMessage(messageParts[0], messageParts[1], messageParts[2])
+          let messageParts = message.body.split(";");
+          if (messageParts.length == 3) {
+            that.generateMessage(messageParts[0], messageParts[1], messageParts[2])
           }
         }
       });
@@ -70,9 +69,11 @@ export class AppComponent implements OnInit {
   }
 
   sendMessage(message) {
-    if (message) {
-      this.stompClient.send("/app/send/message", {},this.tokenStorage.getUsername() + ";" + message);
+    if (this.authority) {
+      if (message) {
+        this.stompClient.send("/app/send/message", {}, this.tokenStorage.getUsername() + ";" + message);
+      }
+      $('#chat-input').val('');
     }
-    $('#chat-input').val('');
   }
 }

@@ -11,6 +11,6 @@
     <a routerLink=".." class="btn btn-warning">WRÓĆ</a>
   </div>
   <div>
-      <a routerLink="./edit" class="btn btn-primary">EDYTUJ</a>
+      <a *ngIf="user.userName==tokenStorage.getUsername() ||  tokenStorage.getAuthorities().includes('ROLE_ADMIN')" routerLink="./edit" class="btn btn-primary">EDYTUJ</a>
   </div>
 </div>

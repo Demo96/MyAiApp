@@ -4,7 +4,7 @@
     <input type="text" placeholder="Szukaj.." [(ngModel)]="filter" />
     <button (click)=filterAdvertisments()>WYSZUKAJ</button>
 </div>
-<div class="create-button">
+<div *ngIf="tokenStorage.getAuthorities().length" class="create-button">
     <a routerLink="./create" class="btn btn-success">DODAJ OGłOSZENIE</a>
 </div>
 <div *ngFor="let advertisment of filteredAdvertisments | async" class="row">

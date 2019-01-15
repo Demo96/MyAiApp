@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { AdvertismentService } from '../advertisment.service';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 @Component({
   selector: 'app-advertisments-list',
@@ -14,7 +15,7 @@ export class AdvertismentsListComponent implements OnInit {
   advertisments: Observable<Advertisment[]>;
   filteredAdvertisments: Observable<Advertisment[]>;
   filter: string;
-  constructor(private advertismentService: AdvertismentService, private router: Router) { }
+  constructor(private advertismentService: AdvertismentService, private router: Router, private tokenStorage: TokenStorageService) { }
 
   getShortDescription(advertisment: Advertisment): string {
     let shortDescriptionMaxLength = 150; 

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdvertismentService } from '../advertisment.service';
 import { Advertisment } from '../advertisment';
+import { TokenStorageService } from '../auth/token-storage.service';
 @Component({
   selector: 'app-advertisment-details',
   templateUrl: './advertisment-details.component.html',
@@ -9,7 +10,7 @@ import { Advertisment } from '../advertisment';
 })
 export class AdvertismentDetailsComponent implements OnInit {
   advertisment: Object;
-  constructor(private advertismentService: AdvertismentService, private route: ActivatedRoute) { }
+  constructor(private advertismentService: AdvertismentService, private route: ActivatedRoute, private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
     this.advertisment = new Advertisment();

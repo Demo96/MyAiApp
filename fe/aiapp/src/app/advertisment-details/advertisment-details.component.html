@@ -14,13 +14,10 @@
     <p>{{advertisment.phoneNumber}}</p>
     <p class="lead">Adres</p>
     <p>{{advertisment.city}}</p>
-    <p>
-        <button type="button" class="btn btn-primary">CZAT ONLINE </button>
-    </p>
-    <p>
+    <p *ngIf="advertisment.userName==tokenStorage.getUsername() ||  tokenStorage.getAuthorities().includes('ROLE_ADMIN')">
         <a routerLink="./edit" class="btn btn-primary">EDYTUJ</a>
     </p>
-    <p>
+    <p *ngIf="advertisment.userName==tokenStorage.getUsername() ||  tokenStorage.getAuthorities().includes('ROLE_ADMIN')">
         <button type="button" (click)=deleteAdvertisment(advertisment.id) class="btn btn-danger">USUŃ</button>
     </p>
     <p>

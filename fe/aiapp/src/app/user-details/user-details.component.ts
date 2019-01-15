@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { UserService } from '../user.service';
 import { ActivatedRoute } from '@angular/router';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 @Component({
   selector: 'app-user-details',
@@ -10,15 +11,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserDetailsComponent implements OnInit {
   user: Object;
-  constructor(private userService: UserService, private route: ActivatedRoute) { }
+  constructor(private userService: UserService, private route: ActivatedRoute, private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
-    console.log("asdddd");
-
     this.user = new User();
     this.route.params.subscribe(param => {
-      console.log(param["userName"]);
-      this.userService.getUser(param["userName"]).subscribe(user => { this.user = user; console.log("asd", this.user); });
+      this.userService.getUser(param["userName"]).subscribe(user => this.user = user);
     });
   }
 
