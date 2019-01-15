@@ -18,6 +18,7 @@ public class Advertisment {
 	@Column(length = 3000)
 	private String description;
 	private int price;
+	private String image;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="USER_ID")
 	private User user;
@@ -25,13 +26,14 @@ public class Advertisment {
 	public Advertisment() {
 	}
 
-	public Advertisment(Integer id, String title, String description, int price, User user) {
+	public Advertisment(Integer id, String title, String description, int price, User user, String image) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.price = price;
 		this.user = user;
+		this.image = image;
 	}
 
 	public Integer getId() {
@@ -72,6 +74,18 @@ public class Advertisment {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

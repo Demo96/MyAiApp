@@ -9,6 +9,7 @@ C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\chat\ChatMessageService.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\chat\ChatMessageController.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\chat\ChatMessageRepository.java
+C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\images\ImagesController.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\ApiApp.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\authentication\messages\SignUpDto.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\chat\ChatMessage.java
@@ -27,6 +28,7 @@ C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\chat\ChatMessageDtoMapper.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\advertisment\Advertisment.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\user\UserService.java
+C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\images\ImagesService.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\advertisment\AdvertismentRepository.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\user\UserDtoMapper.java
 C:\Users\Jakub\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\MyAiApp\src\main\java\com\aiapp\role\RoleRepository.java

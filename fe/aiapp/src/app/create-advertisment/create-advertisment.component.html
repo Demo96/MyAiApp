@@ -1,14 +1,18 @@
-<h3>Create ADVERTISMENT</h3>
+<h3>Dodaj Ogłoszenie</h3>
 <form (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label for="title">Title</label>
+    <label for="title">Tytuł</label>
     <input type="text" class="form-control  vertical-padding" id="title" required [(ngModel)]="advertisment.title" name="title">
     <label for="description">Description</label>
     <textarea type="text" rows="10" class="form-control vertical-padding" id="description" required [(ngModel)]="advertisment.description" name="description"><</textarea>
-    <label for="price">Price</label>
+    <label for="price">Cena</label>
     <input type="number" class="form-control vertical-padding"id="price" required [(ngModel)]="advertisment.price" name="price">
-        <button type="submit" class="btn btn-success">Submit</button>
+    <label for="image">Obrazek</label>
+    <input type="file"(change)="onFileChanged($event)" id="image" >
+    <span *ngIf="img">{{this.img.name}}</span>
+        <button type="submit" class="btn btn-success">Dodaj</button>
+        
   </div>
 </form>
 
-<a routerLink=".."><button class="btn">GO BACK</button></a>
+<a routerLink=".."><button class="btn btn-warning">Wróć</button></a>

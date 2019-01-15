@@ -9,6 +9,7 @@ public class AdvertismentDTO {
 	private String phoneNumber;
 	private String city;
 	private String address;
+	private String image;
 	public int getId() {
 		return id;
 	}
@@ -57,4 +58,11 @@ public class AdvertismentDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
 }

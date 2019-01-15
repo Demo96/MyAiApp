@@ -3,6 +3,7 @@ import { Advertisment } from '../advertisment';
 import { AdvertismentService } from '../advertisment.service';
 import { Router } from '@angular/router';
 import { TokenStorageService } from '../auth/token-storage.service';
+import { ImageService } from '../image.service';
 
 @Component({
   selector: 'app-create-advertisment',
@@ -12,15 +13,20 @@ import { TokenStorageService } from '../auth/token-storage.service';
 export class CreateAdvertismentComponent implements OnInit {
   advertisment: Advertisment = new Advertisment();
   submitted = false;
-  constructor(private tokenStorage: TokenStorageService, private advertismentService: AdvertismentService, private router: Router) { }
+  img: any;
 
+  constructor(private tokenStorage: TokenStorageService, private advertismentService: AdvertismentService, private router: Router, private imageService: ImageService) { }
   ngOnInit() {
     this.setAdvertismentUser();
   }
 
   save() {
     this.advertismentService.creatAdvertisment(this.advertisment)
-      .subscribe(data => console.log(data), error => console.log(error));
+      .subscribe( error => console.log(error));
+    const uploadData = new FormData();
+    uploadData.append('file', this.img, this.img.name);
+    this.imageService.uploadImage(this.advertisment.title, uploadData).subscribe(error => console.log(error));
+    this.img= null;
     this.advertisment = new Advertisment();
     this.setAdvertismentUser();
   }
@@ -32,5 +38,10 @@ export class CreateAdvertismentComponent implements OnInit {
 
   setAdvertismentUser() {
     this.advertisment.userName = this.tokenStorage.getUsername();
+  }
+
+  onFileChanged(event) {
+    this.img = event.target.files[0];
+    this.advertisment.image=this.advertisment.title+this.img.name;
   }
 }

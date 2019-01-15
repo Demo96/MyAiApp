@@ -7,4 +7,5 @@ export class Advertisment {
     phoneNumber: string;
     city: string;
     address: string;
+    image: string;
 }

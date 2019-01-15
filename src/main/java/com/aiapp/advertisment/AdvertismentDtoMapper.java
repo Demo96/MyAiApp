@@ -15,6 +15,7 @@ public class AdvertismentDtoMapper {
 		advDTO.setPhoneNumber(user.getPhoneNumber());
 		advDTO.setCity(user.getCity());
 		advDTO.setAddress(user.getAddress());
+		advDTO.setImage(adv.getImage());
 		return advDTO;
 
 	}
@@ -25,6 +26,7 @@ public class AdvertismentDtoMapper {
 		adv.setDecsription(advDTO.getDescription());
 		adv.setPrice(advDTO.getPrice());
 		adv.setUser(user);
+		adv.setImage(advDTO.getImage());
 		return adv;
 	}
 }
