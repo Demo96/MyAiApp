@@ -13,7 +13,7 @@
     </p>
     <p class="lead">Nr telefonu</p>
     <p>{{advertisment.phoneNumber}}</p>
-    <p class="lead">Adres</p>
+    <p class="lead">Miasto</p>
     <p>{{advertisment.city}}</p>
     <p *ngIf="advertisment.userName==tokenStorage.getUsername() ||  tokenStorage.getAuthorities().includes('ROLE_ADMIN')">
         <a routerLink="./edit" class="btn btn-primary">EDYTUJ</a>

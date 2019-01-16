@@ -1,20 +1,30 @@
 <h3>EDYCJA OGLOSZENIA</h3>
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="preSubmit() && f.form.valid && onSubmit()" #f="ngForm" novalidate>
   <div class="form-group">
     <label for="title">Tytuł</label>
-    <input type="text" class="form-control  vertical-padding" id="title" required [(ngModel)]="advertisment.title" name="title">
-    <label for="description">Opis</label>
-    <textarea type="text" rows="10" class="form-control vertical-padding" id="description" required [(ngModel)]="advertisment.description" name="description"><</textarea>
+    <input type="text" class="form-control  vertical-padding" id="title" required [(ngModel)]="advertisment.title" name="title" #title="ngModel"/>
+    <div *ngIf=" title.invalid">
+      <div class="error" *ngIf="title.errors.required">Tytuł jest wymagany</div>
+    </div>
+    <label for="description">Description</label>
+    <textarea type="text" rows="10" class="form-control vertical-padding" id="description" required [(ngModel)]="advertisment.description" name="description" #description="ngModel"></textarea>
+    <div *ngIf=" description.invalid">
+      <div class="error" *ngIf="description.errors.required">Opis jest wymagany</div>
+    </div>
     <label for="price">Cena</label>
-    <input type="number" class="form-control vertical-padding"id="price" required [(ngModel)]="advertisment.price" name="price">
+    <input type="number" class="form-control vertical-padding"id="price" required [(ngModel)]="advertisment.price" name="price" #price="ngModel"/>
+    <div *ngIf=" price.invalid">
+      <div class="error" *ngIf="price.errors.required">Cena jest wymagana</div>
+    </div>
     <label for="image">Obrazek</label>
     <input type="file"(change)="onFileChanged($event)" id="image" >
     <div class="buttons">
-      <a  (click)="updateAdvertisment()" class="btn btn-success">POTWIERDŹ</a>
-      <a routerLink=".." class="btn btn-warning">WRÓĆ</a>
+      <button type="submit" class="btn btn-success">Edytuj</button>
+      <a routerLink=".." class="btn btn-warning">Wróć</a>
     </div>
-        
   </div>
 </form>
+<div *ngIf="isEdited" class="alert">
+  Ogłoszenie zostało zedytowane.</div>
 
 

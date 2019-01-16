@@ -1,18 +1,29 @@
 <h3>Dodaj Ogłoszenie</h3>
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="preSubmit() && f.form.valid && onSubmit()" #f="ngForm" novalidate>
   <div class="form-group">
     <label for="title">Tytuł</label>
-    <input type="text" class="form-control  vertical-padding" id="title" required [(ngModel)]="advertisment.title" name="title">
+    <input type="text" class="form-control  vertical-padding" id="title" required [(ngModel)]="advertisment.title" name="title" #title="ngModel"/>
+    <div *ngIf="submitted && title.invalid">
+      <div class="error" *ngIf="title.errors.required">Tytuł jest wymagany</div>
+    </div>
     <label for="description">Description</label>
-    <textarea type="text" rows="10" class="form-control vertical-padding" id="description" required [(ngModel)]="advertisment.description" name="description"><</textarea>
+    <textarea type="text" rows="10" class="form-control vertical-padding" id="description" required [(ngModel)]="advertisment.description" name="description" #description="ngModel"></textarea>
+    <div *ngIf="submitted && description.invalid">
+      <div class="error" *ngIf="description.errors.required">Opis jest wymagany</div>
+    </div>
     <label for="price">Cena</label>
-    <input type="number" class="form-control vertical-padding"id="price" required [(ngModel)]="advertisment.price" name="price">
+    <input type="number" class="form-control vertical-padding"id="price" required [(ngModel)]="advertisment.price" name="price" #price="ngModel"/>
+    <div *ngIf="submitted && price.invalid">
+      <div class="error" *ngIf="price.errors.required">Cena jest wymagana</div>
+    </div>
     <label for="image">Obrazek</label>
     <input type="file"(change)="onFileChanged($event)" id="image" >
-    <span *ngIf="img">{{this.img.name}}</span>
+    <div class="buttons">
         <button type="submit" class="btn btn-success">Dodaj</button>
-        
+        <a routerLink=".."><button class="btn btn-warning">Wróć</button></a>
+    </div>
   </div>
 </form>
+<div *ngIf="isAdded" class="alert">
+  Ogłoszenie zostało prawidłowo dodane.</div>
 
-<a routerLink=".."><button class="btn btn-warning">Wróć</button></a>

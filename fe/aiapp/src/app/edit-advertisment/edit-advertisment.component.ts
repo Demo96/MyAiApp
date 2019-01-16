@@ -13,6 +13,7 @@ import { ImageService } from '../image.service';
 export class EditAdvertismentComponent implements OnInit {
   advertisment: Advertisment = new Advertisment();
   img: any;
+  isEdited = false;
 
   constructor(private tokenStorage: TokenStorageService, private advertismentService: AdvertismentService, private route: ActivatedRoute, private imageService: ImageService) { }
 
@@ -22,21 +23,37 @@ export class EditAdvertismentComponent implements OnInit {
 
   getAdvertisment() {
     this.route.params.subscribe(param => {
-      this.advertismentService.getAdvertisment(+param["id"]).subscribe(adv => { this.advertisment = adv;});
+      this.advertismentService.getAdvertisment(+param["id"]).subscribe(adv => { this.advertisment = adv; });
     });
   }
 
   updateAdvertisment() {
-    const uploadData = new FormData();
-    uploadData.append('file', this.img, this.img.name);
-    this.imageService.uploadImage(this.advertisment.title,uploadData).subscribe(error => console.log(error));
+    debugger;
+    if (this.img) {
+      if (this.advertisment.image)
+        this.imageService.deleteImage(this.advertisment.image).subscribe();
+      const uploadData = new FormData();
+      uploadData.append('file', this.img, this.img.name);
+      this.imageService.uploadImage(this.advertisment.id, uploadData).subscribe();
+      this.advertisment.image = this.advertisment.id + this.img.name;
+      this.img = null;
+    }
     this.route.params.subscribe(param => {
-      this.advertismentService.updateAdvertisment(+param["id"],this.advertisment).subscribe(() =>     this.getAdvertisment());
+      this.advertismentService.updateAdvertisment(+param["id"], this.advertisment).subscribe(() => this.getAdvertisment());
     });
+    this.isEdited=true;
   }
 
   onFileChanged(event) {
     this.img = event.target.files[0];
-    this.advertisment.image=this.advertisment.title+this.img.name;
+  }
+
+  preSubmit() {
+    this.isEdited = false;
+    return true;
+  }
+
+  onSubmit() {
+    this.updateAdvertisment();
   }
 }

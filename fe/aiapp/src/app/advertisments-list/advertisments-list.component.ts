@@ -45,4 +45,7 @@ export class AdvertismentsListComponent implements OnInit {
      }
      else this.filteredAdvertisments=this.advertisments;
  }
+ myAdvertisments() {
+  this.filteredAdvertisments=this.advertisments.pipe(map(advertisments => advertisments.filter(adv =>adv.userName==this.tokenStorage.getUsername())));
+ }
 }

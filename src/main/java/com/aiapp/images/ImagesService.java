@@ -18,9 +18,10 @@ public class ImagesService {
 	private final Path rootLocation = Paths
 			.get("C:\\Users\\Jakub\\Documents\\workspace-spring-tool-suite-4-4.0.1.RELEASE\\MyAiApp\\fe\\aiapp\\src\\assets\\images");
 
-	public void store(MultipartFile file, String title) {
+	public void store(MultipartFile file, int id) {
 		try {
-			Files.copy(file.getInputStream(), this.rootLocation.resolve(title+file.getOriginalFilename()), StandardCopyOption.REPLACE_EXISTING);
+			String fileName=file.getOriginalFilename();
+			Files.copy(file.getInputStream(), this.rootLocation.resolve(id+fileName), StandardCopyOption.REPLACE_EXISTING);
 		} catch (FileAlreadyExistsException e) {
 			throw new RuntimeException("Failed to store image: File already exist " + file.getOriginalFilename());
 		} catch (Exception e) {
@@ -31,6 +32,7 @@ public class ImagesService {
 
 	public Resource load(String filename) {
 		try {
+			filename=filename.substring(0, filename.length()-3) + "." + filename.substring( filename.length()-3,filename.length());
 			Path filePath = this.rootLocation.resolve(filename);
 			return new UrlResource(filePath.toUri());
 
@@ -39,6 +41,7 @@ public class ImagesService {
 		}
 	}
 	public void deleteImage(String filename) {
+		filename=filename.substring(0, filename.length()-3) + "." + filename.substring( filename.length()-3,filename.length());
 		Path filePath = this.rootLocation.resolve(filename);
 		FileSystemUtils.deleteRecursively(filePath.toFile());
 	}

@@ -6,3 +6,19 @@
 h3 {
     text-align: center;
 }
+
+.error {
+    color: red;
+}
+
+#image {
+    margin: 0.7rem 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    >* {
+        margin: 0.7rem;
+    }
+}

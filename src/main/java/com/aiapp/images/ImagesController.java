@@ -29,29 +29,23 @@ public class ImagesController {
     @GetMapping("/{fileName}")
     @ResponseBody
     public ResponseEntity<Resource> saveFile(@PathVariable String fileName) {
-
         Resource file = imagesService.load(fileName);
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
                 "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
 	
     @PreAuthorize("isAuthenticated()")
-    @PostMapping("/{title}")
-    public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file, @PathVariable String title) {
-    	String message="";
-    	imagesService.store(file, title);
-        message="You successfully uploaded " + file.getOriginalFilename() + "!";
-
-        return ResponseEntity.status(HttpStatus.OK).body(message);
+    @PostMapping("/{id}")
+    public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file, @PathVariable int id) {
+    	imagesService.store(file, id);
+        return ResponseEntity.status(HttpStatus.OK).body("You successfully uploaded " + file.getOriginalFilename() + "!");
     }
     
     @PreAuthorize("isAuthenticated()")
     @DeleteMapping("/{fileName}")
     public ResponseEntity<String> deleteFile(@PathVariable String fileName) {
-    	fileName=fileName.substring(0, fileName.length()-3) + "." + fileName.substring( fileName.length()-3,fileName.length());
     	imagesService.deleteImage(fileName);
-    	String message="You successfully deleted "+ fileName + "!";
-        return ResponseEntity.status(HttpStatus.OK).body(message);
+        return ResponseEntity.status(HttpStatus.OK).body("You successfully deleted "+ fileName + "!");
 
     }
 }

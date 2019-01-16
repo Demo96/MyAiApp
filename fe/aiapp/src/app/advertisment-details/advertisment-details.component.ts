@@ -25,7 +25,6 @@ export class AdvertismentDetailsComponent implements OnInit {
     this.advertismentService.deleteAdvertisment(id).subscribe(() => {
       window.location.href = '..';
       if(imageName) {
-        imageName= imageName.substring(0, imageName.length-4) + imageName.substring(imageName.length-3, imageName.length);
         this.imageService.deleteImage(imageName).subscribe();
       }
     });

@@ -9,14 +9,17 @@ export class ImageService {
   private baseUrl = "http://localhost:8080/images";
 
   constructor(private http: HttpClient) { }
-  getImage( fileName: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${fileName}`);
+  getImage( imageName: string): Observable<any> {
+    imageName= imageName.substring(0, imageName.length-4) + imageName.substring(imageName.length-3, imageName.length);
+    return this.http.get(`${this.baseUrl}/${imageName}`);
   }
 
-  uploadImage(title: string, file: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}/${title}`, file);
+  uploadImage(id: number, file: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}/${id}`, file);
   }
-  deleteImage(fileName: string): Observable<Object> {
-    return this.http.delete(`${this.baseUrl}/${fileName}`);
+
+  deleteImage(imageName: string): Observable<Object> {
+    imageName= imageName.substring(0, imageName.length-4) + imageName.substring(imageName.length-3, imageName.length);
+    return this.http.delete(`${this.baseUrl}/${imageName}`);
   }
 }

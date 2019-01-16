@@ -30,17 +30,22 @@ body {
   border: 1px black solid;
 }
 
+.chat-container {
+  position: fixed;
+  right: 0;
+}
+
 .chat {
     display: flex;
     flex-direction: column-reverse;
-    overflow-y: scroll;
+    overflow:scroll;
     height: 85%;
-  }
+}
    
-  #chat-input {
-    width: 100%;
-  }
+ #chat-input {
+  width: 100%;
+}
 
-  .message-info {
-    font-size: 1rem;
-  }
+.message-info {
+  font-size: 1rem;
+}

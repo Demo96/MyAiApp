@@ -6,10 +6,13 @@
 </div>
 <div *ngIf="tokenStorage.getAuthorities().length" class="create-button">
     <a routerLink="./create" class="btn btn-success">DODAJ OGłOSZENIE</a>
+    <a class="btn btn-success" (click)=myAdvertisments() >MOJE OGŁOSZENIA</a>
+
+
 </div>
 <div *ngFor="let advertisment of filteredAdvertisments | async" class="row">
     <div class="two-col">
-        <div>
+        <div class="img-container">
             <a routerLink="./{{advertisment.id}}">
                 <img *ngIf="!advertisment.image" src="http://placehold.it/700x300" />
                 <img *ngIf="advertisment.image" src="assets/images/{{advertisment.image}}" />
@@ -25,7 +28,7 @@
 
 
             <div>
-                <a routerLink="./{{advertisment.id}}" class="btn btn-primary">Sczegóły</a>
+                <a routerLink="./{{advertisment.id}}" class="btn btn-primary">Szczegóły</a>
                 <a *ngIf="tokenStorage.getAuthorities().includes('ROLE_ADMIN')" (click)=deleteAdvertisment(advertisment.id) class="btn btn-danger">Usuń</a>
             </div>
 
