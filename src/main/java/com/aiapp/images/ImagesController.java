@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +28,7 @@ public class ImagesController {
 
     @GetMapping("/{fileName}")
     @ResponseBody
-    public ResponseEntity<Resource> serveFile(@PathVariable String fileName) {
+    public ResponseEntity<Resource> saveFile(@PathVariable String fileName) {
 
         Resource file = imagesService.load(fileName);
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
@@ -42,5 +43,15 @@ public class ImagesController {
         message="You successfully uploaded " + file.getOriginalFilename() + "!";
 
         return ResponseEntity.status(HttpStatus.OK).body(message);
+    }
+    
+    @PreAuthorize("isAuthenticated()")
+    @DeleteMapping("/{fileName}")
+    public ResponseEntity<String> deleteFile(@PathVariable String fileName) {
+    	fileName=fileName.substring(0, fileName.length()-3) + "." + fileName.substring( fileName.length()-3,fileName.length());
+    	imagesService.deleteImage(fileName);
+    	String message="You successfully deleted "+ fileName + "!";
+        return ResponseEntity.status(HttpStatus.OK).body(message);
+
     }
 }

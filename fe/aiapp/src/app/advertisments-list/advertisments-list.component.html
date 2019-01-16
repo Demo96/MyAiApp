@@ -11,7 +11,8 @@
     <div class="two-col">
         <div>
             <a routerLink="./{{advertisment.id}}">
-                <img class="" src="http://placehold.it/700x300" alt="">
+                <img *ngIf="!advertisment.image" src="http://placehold.it/700x300" />
+                <img *ngIf="advertisment.image" src="assets/images/{{advertisment.image}}" />
             </a>
         </div>
         <div>
@@ -25,7 +26,7 @@
 
             <div>
                 <a routerLink="./{{advertisment.id}}" class="btn btn-primary">Sczegóły</a>
-                <a (click)=deleteAdvertisment(advertisment.id) class="btn btn-danger">Usuń</a>
+                <a *ngIf="tokenStorage.getAuthorities().includes('ROLE_ADMIN')" (click)=deleteAdvertisment(advertisment.id) class="btn btn-danger">Usuń</a>
             </div>
 
         </div>

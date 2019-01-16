@@ -24,6 +24,12 @@ a {
     margin: 0.7rem;
 }
 
+hr {
+    margin-left: $defaul-padding;
+    margin-right: $defaul-padding;
+    border-color: white;
+}
+
 .two-col {
     display:flex;
 

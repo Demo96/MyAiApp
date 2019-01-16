@@ -14,6 +14,9 @@ export class ImageService {
   }
 
   uploadImage(title: string, file: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}/${title}`, file)
+    return this.http.post(`${this.baseUrl}/${title}`, file);
+  }
+  deleteImage(fileName: string): Observable<Object> {
+    return this.http.delete(`${this.baseUrl}/${fileName}`);
   }
 }

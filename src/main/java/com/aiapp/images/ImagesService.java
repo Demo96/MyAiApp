@@ -9,6 +9,7 @@ import java.nio.file.StandardCopyOption;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
+import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
@@ -36,5 +37,9 @@ public class ImagesService {
 		} catch (Exception e) {
 			throw new RuntimeException("Failed to load image " + filename);
 		}
+	}
+	public void deleteImage(String filename) {
+		Path filePath = this.rootLocation.resolve(filename);
+		FileSystemUtils.deleteRecursively(filePath.toFile());
 	}
 }
