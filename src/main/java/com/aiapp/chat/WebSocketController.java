@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 
@@ -24,7 +25,7 @@ public class WebSocketController {
     public WebSocketController(final SimpMessagingTemplate template) {
         this.template = template;
     }
- 
+
     @MessageMapping("/send/message")
     public void onReceiveMessage(final String message) {
     	ChatMessage msg = new ChatMessage();

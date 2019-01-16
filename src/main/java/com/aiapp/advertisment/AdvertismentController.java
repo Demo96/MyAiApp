@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -46,6 +47,7 @@ public class AdvertismentController {
 		return mapper.mapToDTO(adv);
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	@PostMapping("")
 	public void addAdvertisment(@RequestBody AdvertismentDTO advertisment) {
 		AdvertismentDtoMapper mapper = new AdvertismentDtoMapper();
@@ -55,6 +57,7 @@ public class AdvertismentController {
 		advertismentService.addAdvertisment(adv);
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	@PutMapping("/{id}")
 	public void updateAdvertisment(@RequestBody AdvertismentDTO advertisment, @PathVariable int id) {
 		AdvertismentDtoMapper mapper = new AdvertismentDtoMapper();
@@ -65,6 +68,7 @@ public class AdvertismentController {
 		advertismentService.updateAdvertisment(adv);
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	@DeleteMapping("/{id}")
 	public void deleteAdvertisment(@PathVariable int id) {
 		advertismentService.deleteAdvertisment(id);
