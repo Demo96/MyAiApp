@@ -3,6 +3,7 @@ package com.aiapp.chat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,14 @@ public class ChatMessageService {
     private SimpMessagingTemplate template;
    
 
-	public List<ChatMessage> getAllMessages() {
+	public List<ChatMessageDTO> getAllMessages() {
 		List<ChatMessage> msgList = new ArrayList<>();
 		chatMessageRepository.findAll().forEach(msgList::add);
-		return msgList;
+		List<ChatMessageDTO> DTOList = new LinkedList<ChatMessageDTO>();
+		ChatMessageDtoMapper mapper = new ChatMessageDtoMapper();
+		for (ChatMessage msg : msgList)
+			DTOList.add(mapper.mapToDTO(msg));
+		return DTOList;
 	}
 	
 	public void addChatMessage(String message) {

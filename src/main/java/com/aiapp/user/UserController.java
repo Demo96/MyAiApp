@@ -26,37 +26,16 @@ public class UserController {
 	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("")
 	public List<UserDTO> getAllUsers() {
-		List<User> userList = userService.getAllUsers();
-		List<UserDTO> DTOList = new LinkedList<UserDTO>();
-		UserDtoMapper mapper = new UserDtoMapper();
-		for (User user : userList)
-			DTOList.add(mapper.mapToDTO(user));
-		return DTOList;
+		return userService.getAllUsers();
+		
 	}
 	@GetMapping("/{username}")
 	public UserDTO getUserByUsername(@PathVariable String username) {
-		User user = userService.getUserByUserName(username).orElseThrow(() -> new UsernameNotFoundException(
-				"User Not Found with -> username : " + username));
-		UserDtoMapper mapper = new UserDtoMapper();
-		return mapper.mapToDTO(user);
+		return userService.getUserByUserName(username);
 	}	
-	
-	@DeleteMapping("/{username}")
-	public void deleteUser(@PathVariable String username) {
-		User user = userService.getUserByUserName(username).orElseThrow(() -> new UsernameNotFoundException(
-				"User Not Found with -> username: " + username));
-		userService.deleteUser(user.getId());
-	}
 	
 	@PutMapping("/{username}")
 	public void updateUser(@RequestBody UserDTO userDTO, @PathVariable String username) {
-		UserDtoMapper mapper = new UserDtoMapper();
-		User user = userService.getUserByUserName(userDTO.getUserName()).orElseThrow(() -> new UsernameNotFoundException(
-				"User Not Found with -> username: " + userDTO.getUserName()));
-		User newUser =mapper.mapFromDTO(userDTO);
-		newUser.setId(user.getId());
-		newUser.setPassword(user.getPassword());
-		newUser.setRoles(user.getRoles());
-		userService.updateUser(newUser);
+		userService.updateUser(userDTO);
 	}
 }

@@ -18,11 +18,6 @@ public class ChatMessageController {
 	
 	@GetMapping("")
 	public List<ChatMessageDTO> getAllMessages() {
-		List<ChatMessage> msgList = chatMessageService.getAllMessages();
-		List<ChatMessageDTO> DTOList = new LinkedList<ChatMessageDTO>();
-		ChatMessageDtoMapper mapper = new ChatMessageDtoMapper();
-		for (ChatMessage msg : msgList)
-			DTOList.add(mapper.mapToDTO(msg));
-		return DTOList;
+		return chatMessageService.getAllMessages();
 	}
 }

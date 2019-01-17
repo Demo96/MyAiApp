@@ -26,46 +26,31 @@ import com.aiapp.user.UserService;
 public class AdvertismentController {
 	@Autowired
 	private AdvertismentService advertismentService;
-	@Autowired
-	private UserService userService;
+
 	
 	
 	@GetMapping("")
 	public List<AdvertismentDTO> getAllAdvertisments() {
-		List<Advertisment> advList = advertismentService.getAllAdvertisments();
-		List<AdvertismentDTO> DTOList = new LinkedList<AdvertismentDTO>();
-		AdvertismentDtoMapper mapper = new AdvertismentDtoMapper();
-		for (Advertisment adv : advList)
-			DTOList.add(mapper.mapToDTO(adv));
-		return DTOList;
+		return advertismentService.getAllAdvertisments();
 	}
 	
 	@GetMapping("/{id}")
 	public AdvertismentDTO getAdvertismentById(@PathVariable int id) {
-		Advertisment adv = advertismentService.getAdvertismentById(id);
-		AdvertismentDtoMapper mapper = new AdvertismentDtoMapper();
-		return mapper.mapToDTO(adv);
+		return advertismentService.getAdvertismentById(id);
 	}
 	
 	@PreAuthorize("isAuthenticated()")
 	@PostMapping("")
 	public void addAdvertisment(@RequestBody AdvertismentDTO advertisment) {
-		AdvertismentDtoMapper mapper = new AdvertismentDtoMapper();
-		User user = userService.getUserByUserName(advertisment.getUserName()).orElseThrow(() -> new UsernameNotFoundException(
-				"User Not Found with -> username or email : " + advertisment.getUserName()));
-		Advertisment adv =mapper.mapFromDTO(advertisment, user);
-		advertismentService.addAdvertisment(adv);
+		
+		advertismentService.addAdvertisment(advertisment);
 	}
 	
 	@PreAuthorize("isAuthenticated()")
 	@PutMapping("/{id}")
 	public void updateAdvertisment(@RequestBody AdvertismentDTO advertisment, @PathVariable int id) {
-		AdvertismentDtoMapper mapper = new AdvertismentDtoMapper();
-		User user = userService.getUserByUserName(advertisment.getUserName()).orElseThrow(() -> new UsernameNotFoundException(
-				"User Not Found with -> username or email : " + advertisment.getUserName()));
-		Advertisment adv =mapper.mapFromDTO(advertisment, user);
-		adv.setId(id);
-		advertismentService.updateAdvertisment(adv);
+
+		advertismentService.updateAdvertisment(advertisment, id);
 	}
 	
 	@PreAuthorize("isAuthenticated()")
