@@ -34,8 +34,9 @@ export class EditAdvertismentComponent implements OnInit {
         this.imageService.deleteImage(this.advertisment.image).subscribe();
       const uploadData = new FormData();
       uploadData.append('file', this.img, this.img.name);
-      this.imageService.uploadImage(this.advertisment.id, uploadData).subscribe();
-      this.advertisment.image = this.advertisment.id + this.img.name;
+      let prefix = this.generatePrefix();
+      this.imageService.uploadImage(prefix, uploadData).subscribe();
+      this.advertisment.image = prefix + this.img.name;
       this.img = null;
     }
     this.route.params.subscribe(param => {
@@ -55,5 +56,9 @@ export class EditAdvertismentComponent implements OnInit {
 
   onSubmit() {
     this.updateAdvertisment();
+  }
+
+  generatePrefix(): string {
+    return Math.random().toString(36).substring(5);
   }
 }

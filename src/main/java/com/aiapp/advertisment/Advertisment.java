@@ -7,6 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
+
 import com.aiapp.user.User;
 
 @Entity
@@ -14,10 +18,14 @@ public class Advertisment {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	@NotBlank
+	@Size(min = 3, max = 30)
+	@Column(unique=true)
 	private String title;
+	@NotBlank
 	@Column(length = 3000)
 	private String description;
-	private int price;
+	private Integer price;
 	private String image;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="USER_ID")

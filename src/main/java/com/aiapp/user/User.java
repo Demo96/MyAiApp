@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 import com.aiapp.advertisment.Advertisment;
 import com.aiapp.chat.ChatMessage;
@@ -25,12 +29,27 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@NotBlank
+	@Size(min = 3, max = 30)
+	@Column(unique=true)
 	private String userName;
+	@NotBlank
+	@Size(min = 6)
 	private String password;
+	@NotBlank
+	@Size(min = 3, max = 30)
 	private String firstName;
+	@NotBlank
+	@Size(min = 3, max = 30)
 	private String sureName;
+	@NotBlank
+	@Size(min = 9, max = 12)
 	private String phoneNumber;
+	@NotBlank
+	@Size(min = 3, max = 50)
 	private String city;
+	@NotBlank
+	@Size(min = 3, max = 50)
 	private String address;
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	@ManyToMany

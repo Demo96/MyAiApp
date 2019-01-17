@@ -15,6 +15,7 @@ export class CreateAdvertismentComponent implements OnInit {
   submitted = false;
   img: any;
   isAdded = false;
+  prefix="";
   constructor(private tokenStorage: TokenStorageService, private advertismentService: AdvertismentService, private router: Router, private imageService: ImageService) { }
   ngOnInit() {
     this.setAdvertismentUser();
@@ -25,7 +26,7 @@ export class CreateAdvertismentComponent implements OnInit {
       if(this.img) {
     const uploadData = new FormData();
     uploadData.append('file', this.img, this.img.name);
-    this.imageService.uploadImage(this.advertisment.id, uploadData).subscribe((error => console.log(error)));
+    this.imageService.uploadImage(this.prefix, uploadData).subscribe((error => console.log(error)));
     
     this.img= null;
   }
@@ -53,6 +54,11 @@ preSubmit()
 
   onFileChanged(event) {
     this.img = event.target.files[0];
-    this.advertisment.image=this.advertisment.id+this.img.name;
+    this.prefix = this.generatePrefix();
+    this.advertisment.image=this.prefix+this.img.name;
+  }
+
+  generatePrefix(): string {
+    return Math.random().toString(36).substring(5);
   }
 }

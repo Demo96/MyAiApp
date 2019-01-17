@@ -35,9 +35,9 @@ public class ImagesController {
     }
 	
     @PreAuthorize("isAuthenticated()")
-    @PostMapping("/{id}")
-    public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file, @PathVariable int id) {
-    	imagesService.store(file, id);
+    @PostMapping("/{prefix}")
+    public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file, @PathVariable String prefix) {
+    	imagesService.store(file, prefix);
         return ResponseEntity.status(HttpStatus.OK).body("You successfully uploaded " + file.getOriginalFilename() + "!");
     }
     

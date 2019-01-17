@@ -18,10 +18,10 @@ public class ImagesService {
 	private final Path rootLocation = Paths
 			.get("C:\\Users\\Jakub\\Documents\\workspace-spring-tool-suite-4-4.0.1.RELEASE\\MyAiApp\\fe\\aiapp\\src\\assets\\images");
 
-	public void store(MultipartFile file, int id) {
+	public void store(MultipartFile file, String prefix) {
 		try {
 			String fileName=file.getOriginalFilename();
-			Files.copy(file.getInputStream(), this.rootLocation.resolve(id+fileName), StandardCopyOption.REPLACE_EXISTING);
+			Files.copy(file.getInputStream(), this.rootLocation.resolve(prefix+fileName), StandardCopyOption.REPLACE_EXISTING);
 		} catch (FileAlreadyExistsException e) {
 			throw new RuntimeException("Failed to store image: File already exist " + file.getOriginalFilename());
 		} catch (Exception e) {
