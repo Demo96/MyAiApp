@@ -2,12 +2,13 @@
 <form (ngSubmit)="preSubmit() && f.form.valid && onSubmit()" #f="ngForm" novalidate>
   <div class="form-group">
     <label for="title">Tytuł</label>
-    <input type="text" class="form-control  vertical-padding" id="title" required [(ngModel)]="advertisment.title" name="title" #title="ngModel"/>
-    <div *ngIf=" title.invalid">
+    <input type="text" class="form-control  vertical-padding" id="title" [(ngModel)]="advertisment.title" name="title" #title="ngModel" required minlength="3" maxlength="30"/>
+    <div *ngIf=" title.invalid" >
       <div class="error" *ngIf="title.errors.required">Tytuł jest wymagany</div>
+      <div class="error" *ngIf="title.errors.minlength">Tytuł musi mieć co najmniej 3 znaki</div>
     </div>
     <label for="description">Description</label>
-    <textarea type="text" rows="10" class="form-control vertical-padding" id="description" required [(ngModel)]="advertisment.description" name="description" #description="ngModel"></textarea>
+    <textarea type="text" rows="10" class="form-control vertical-padding" id="description" required [(ngModel)]="advertisment.description" name="description" #description="ngModel" maxlength="3000"></textarea>
     <div *ngIf=" description.invalid">
       <div class="error" *ngIf="description.errors.required">Opis jest wymagany</div>
     </div>
