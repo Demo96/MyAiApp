@@ -16,27 +16,10 @@ import com.aiapp.user.UserService;
 public class WebSocketController {
 	@Autowired
 	private ChatMessageService chatMessageService;
-	@Autowired
-	private UserService userService;
-    private final SimpMessagingTemplate template;
- 
-    @Autowired
-    public WebSocketController(final SimpMessagingTemplate template) {
-        this.template = template;
-    }
+
 
     @MessageMapping("/send/message")
     public void onReceiveMessage(final String message) {
-    	ChatMessage msg = new ChatMessage();
-    	String date=LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
-    	String username=message.split(";")[0];
-    	msg.setMessage(message.split(";")[1]);
-    	msg.setDate(date);
-    	User user = userService.getUserByUserName(username).orElseThrow(() -> new UsernameNotFoundException(
-				"User Not Found with -> username or email : " + username));
-    	msg.setUser(user);
-    	chatMessageService.addChatMessage(msg);
-        this.template.convertAndSend("/chat",
-             date + ";" + message);
+    	chatMessageService.addChatMessage(message);
     }
 }
